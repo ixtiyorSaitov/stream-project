@@ -30,7 +30,7 @@ const Search = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="relative w-full lg:w-1/3 flex items-center"
+      className="relative w-full lg:w-1/3 flex items-center max-md:ml-2"
     >
       <Input
         placeholder="Search for anything..."
