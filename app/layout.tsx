@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 
 import type { Metadata } from "next";
@@ -26,11 +27,20 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${montserrat.variable} ${space_grotesk.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          storageKey="app-theme"
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

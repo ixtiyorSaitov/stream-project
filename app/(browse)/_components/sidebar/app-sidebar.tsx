@@ -48,7 +48,7 @@ const AppSidebar = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href={'/dashboard'}>
+                  <Link href={"/dashboard"}>
                     <span>Dashboard</span>
                   </Link>
                 </DropdownMenuItem>
