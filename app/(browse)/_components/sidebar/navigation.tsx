@@ -1,3 +1,5 @@
+"use client";
+
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -8,8 +10,10 @@ import {
 } from "@/components/ui/sidebar";
 import { Clapperboard, Home, Layers2, TvMinimalPlay } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navigation = () => {
+  const pathName = usePathname();
   return (
     <>
       <SidebarGroup>
@@ -18,7 +22,7 @@ const Navigation = () => {
           <SidebarMenu>
             {navigation_items.map((item) => (
               <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton asChild>
+                <SidebarMenuButton isActive={pathName === item.route} asChild>
                   <Link href={item.route}>
                     <item.icon />
                     <span>{item.title}</span>
