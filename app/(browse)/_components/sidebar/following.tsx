@@ -1,3 +1,5 @@
+import { getFollowing } from "@/actions/user.action";
+import UserAvatar from "@/components/shared/user-avatar";
 import {
   SidebarContent,
   SidebarGroup,
@@ -6,24 +8,29 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
 
-const Following = () => {
+const Following = async () => {
+  const data = await getFollowing();
+  console.log(data);
+
+  const following = data?.data?.following || [];
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Following</SidebarGroupLabel>
       <SidebarContent>
         <SidebarMenu>
-          {data.map((item) => (
+          {following.map((item) => (
             <SidebarMenuItem key={item.id}>
               <SidebarMenuButton asChild size={"lg"}>
                 <Link href={`/u/${item.username}`}>
-                  <Image
-                    width={32}
-                    height={32}
-                    src={item.avatar}
-                    alt={item.username}
+                  <UserAvatar
+                    avatar={item.avatar}
+                    username={item.username}
+                    variant={"square"}
                   />
                   <div className="flex flex-col">
                     <p className="text-sm font-space-grotesk">
@@ -44,18 +51,25 @@ const Following = () => {
 };
 
 export default Following;
-
-const data = [
-  {
-    id: "1",
-    username: "ixti2101",
-    avatar: "https://github.com/shadcn.png",
-    followedBy: 8,
-  },
-  {
-    id: "2",
-    username: "oman",
-    avatar: "https://github.com/shadcn.png",
-    followedBy: 23,
-  },
-];
+export const FollowingSkeleton = () => {
+  return (
+    <SidebarGroup>
+      <SidebarGroupLabel>Following</SidebarGroupLabel>
+      <SidebarContent>
+        <SidebarMenu>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <SidebarMenuItem key={index}>
+              <SidebarMenuButton size={"lg"}>
+                <Skeleton className="w-8 h-8" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-12" />
+                  <Skeleton className="h-4 w-24" />
+                </div>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
+        </SidebarMenu>
+      </SidebarContent>
+    </SidebarGroup>
+  );
+};

@@ -42,6 +42,6 @@ export default Navigation;
 const navigation_items = [
   { title: "Home", route: "/", icon: Home },
   { title: "Lives", route: "/lives", icon: Layers2 },
-  { title: "Subscribtions", route: "/supscribtion", icon: TvMinimalPlay },
+  { title: "Subscribtions", route: "/supscribtions", icon: TvMinimalPlay },
   { title: "Dashboard", route: "/dashboard", icon: Clapperboard },
 ];

@@ -142,3 +142,10 @@ body,
 .cl-internal-1dauvpw {
   display: none;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
