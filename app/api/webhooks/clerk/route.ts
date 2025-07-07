@@ -16,15 +16,23 @@ export async function POST(req: NextRequest) {
     console.log("Webhook payload:", evt.data);
 
     if (eventType === "user.created") {
-      await db.user.create({
-        data: {
-          clerkId: evt.data.id,
-          username: evt.data.username!,
-          avatar: evt.data.image_url,
-          fullName: `${evt.data.first_name} ${evt.data.last_name}`,
-          bio: "Bio is not provided !!!",
-        },
-      });
+      try {
+        const username = evt.data.username || `user_${evt.data.id}`;
+
+        await db.user.create({
+          data: {
+            clerkId: evt.data.id,
+            username,
+            avatar: evt.data.image_url,
+            fullName: `${evt.data.first_name} ${evt.data.last_name}`,
+            bio: "Bio is not provided !!!",
+          },
+        });
+
+        console.log("✅ User created:", username);
+      } catch (error) {
+        console.error("❌ Error while creating user:", error);
+      }
     }
 
     if (eventType === "user.updated") {
