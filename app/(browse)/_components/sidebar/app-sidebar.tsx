@@ -2,7 +2,6 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -11,9 +10,8 @@ import {
 import Navigation from "./navigation";
 import Following from "./following";
 import Recommended from "./recommended";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ChevronUp, CircleGauge, User2 } from "lucide-react";
+import { ChevronUp, User2 } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
