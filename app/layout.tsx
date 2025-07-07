@@ -3,6 +3,7 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Montserrat, Space_Grotesk } from "next/font/google";
+import ClerkProvider from "@/components/providers/clerk-provider";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -39,7 +40,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           disableTransitionOnChange
           storageKey="app-theme"
         >
-          {children}
+          <ClerkProvider>{children}</ClerkProvider>
         </ThemeProvider>
       </body>
     </html>
