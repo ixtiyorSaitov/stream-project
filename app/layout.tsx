@@ -1,9 +1,10 @@
-import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Montserrat, Space_Grotesk } from "next/font/google";
 import ClerkProvider from "@/components/providers/clerk-provider";
+import NextTopLoader from "nextjs-toploader";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -40,7 +41,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           disableTransitionOnChange
           storageKey="app-theme"
         >
-          <ClerkProvider>{children}</ClerkProvider>
+          <ClerkProvider>
+            <NextTopLoader showSpinner={false} />
+            {children}
+          </ClerkProvider>
         </ThemeProvider>
       </body>
     </html>
