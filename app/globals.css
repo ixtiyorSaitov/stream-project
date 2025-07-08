@@ -149,3 +149,14 @@ body,
   justify-content: center;
   padding: 1rem;
 }
+.custom-scrollbar::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+  border-radius: 1px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-secondary;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary;
+}

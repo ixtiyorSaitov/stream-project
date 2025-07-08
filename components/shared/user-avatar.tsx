@@ -38,7 +38,7 @@ const UserAvatar = ({
   showBadge,
 }: UserAvatarProps) => {
   return (
-    <div className={cn('relative', showBadge && 'h-full')}>
+    <div className={cn("relative")}>
       <Avatar
         className={cn(
           isLive && "ring-2 ring-red-500 border border-primary",
