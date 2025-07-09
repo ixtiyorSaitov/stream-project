@@ -10,7 +10,7 @@ const VideoPage = async ({ params }: VideoPageProps) => {
   return (
     <div className="grid grid-cols-4 gap-x-4">
       <div className="col-span-3">
-        <div className="aspect-video rounded-md" />
+        <div className="aspect-video rounded-md bg-accent" />
         <h1 className="text-2xl font-bold font-space-grotesk">
           How to build website with Next.js and Tailwind css - Full Course
         </h1>
