@@ -2,6 +2,7 @@ import { getHomeFeed } from "@/actions/feed.action";
 import UserAvatar from "@/components/shared/user-avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { formatDistanceToNow } from "date-fns";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
@@ -95,3 +96,46 @@ const UserContent = async () => {
 };
 
 export default UserContent;
+
+export const UserContentSkeleton = () => {
+  return (
+    <div className="mb-8">
+      <div className="flex gap-x-4 mt-6 w-2/3 items-start">
+        <Skeleton className="w-72 h-44 rounded-xl relative" />
+
+        <div className="flex flex-1 space-y-1 flex-col">
+          <Skeleton className="w-1/2 h-4" />
+          <div className="flex flex-col space-y-1">
+            <Skeleton className="w-full h-2" />
+            <Skeleton className="w-full h-2" />
+            <Skeleton className="w-1/2 h-2" />
+          </div>
+          <div>
+            <Skeleton className="w-1/4 h-4 mt-2" />
+          </div>
+          <div>
+            <Skeleton className="w-1/3 h-10 rounded-full mt-4" />
+          </div>
+        </div>
+      </div>
+      <Separator className="my-6" />
+
+      <h1 className="text-2xl font-space-grotesk font-bold">Videos</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-2 lg:gap-4">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i}>
+            <Skeleton className="h-56 rounded-lg" />
+            <div className="mt-4 flex gap-x-2">
+              <Skeleton className="w-10 h-10 rounded-full" />
+
+              <div className="flex flex-col space-y-1">
+                <Skeleton className="w-32 h-4" />
+                <Skeleton className="w-20 h-3" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};

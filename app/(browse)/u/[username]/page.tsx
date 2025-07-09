@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import SubscribeBtn from "../../_components/subscribe-btn";
-import UserContent from "../_components/user-content";
+import UserContent, { UserContentSkeleton } from "../_components/user-content";
 import { Suspense } from "react";
 
 interface UserNamePageProps {
@@ -84,7 +84,7 @@ const UserNamePage = async ({ params }: UserNamePageProps) => {
         </div>
       </div>
 
-      <Suspense fallback={<p>Loading</p>}>
+      <Suspense fallback={<UserContentSkeleton />}>
         <UserContent />
       </Suspense>
     </div>
