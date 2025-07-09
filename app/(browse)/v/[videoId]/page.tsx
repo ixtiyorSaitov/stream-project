@@ -1,4 +1,3 @@
-import { Separator } from "@/components/ui/separator";
 import Description from "../_components/description";
 import UserInformation from "../_components/user-information";
 import VideoActions from "../_components/video-actions";
@@ -11,6 +10,8 @@ interface VideoPageProps {
 
 const VideoPage = async ({ params }: VideoPageProps) => {
   const { videoId } = await params;
+  console.log(videoId);
+
   return (
     <div className="grid grid-cols-4 gap-x-4">
       <div className="col-span-3">

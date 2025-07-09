@@ -1,5 +1,4 @@
 import { getHomeFeed } from "@/actions/feed.action";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
