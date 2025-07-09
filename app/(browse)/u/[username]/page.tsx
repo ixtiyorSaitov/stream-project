@@ -5,6 +5,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import SubscribeBtn from "../../_components/subscribe-btn";
 import UserContent from "../_components/user-content";
+import { Suspense } from "react";
 
 interface UserNamePageProps {
   params: Promise<{ username: string }>;
@@ -83,7 +84,9 @@ const UserNamePage = async ({ params }: UserNamePageProps) => {
         </div>
       </div>
 
-      <UserContent />
+      <Suspense fallback={<p>Loading</p>}>
+        <UserContent />
+      </Suspense>
     </div>
   );
 };
