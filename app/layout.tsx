@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Montserrat, Space_Grotesk } from "next/font/google";
 import ClerkProvider from "@/components/providers/clerk-provider";
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "@/components/ui/sonner";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -42,6 +43,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           storageKey="app-theme"
         >
           <ClerkProvider>
+            <Toaster />
             <NextTopLoader showSpinner={false} />
             {children}
           </ClerkProvider>
