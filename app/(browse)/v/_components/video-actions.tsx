@@ -32,6 +32,7 @@ import {
   VKIcon,
   VKShareButton,
 } from "react-share";
+import { toast } from "sonner";
 
 interface VideoActionsProps {
   reaction: "LIKE" | "DISLIKE" | null;
@@ -118,18 +119,19 @@ const VideoActions = ({ reaction }: VideoActionsProps) => {
             </TwitterShareButton>
           </div>
 
-          <div className="flex items-center justify-between bg-secondary p-2 border rounded-lg gap-x-4 mt-4">
-            <div className="flex-1 line-clamp-1">
+          <div className="flex items-center justify-between bg-secondary py-1 px-2 border rounded-full gap-x-4 mt-4">
+            <div className="flex-1 line-clamp-1 text-sm">
               {process.env.NEXT_PUBLIC_DOMAIN_URL}/v/1
             </div>
             <Button
+            size={'sm'}
               variant={isCopied ? "outline" : "default"}
               className="rounded-full font-bold font-space-grotesk"
               onClick={() => {
                 if (!isCopied) {
-                  navigator.clipboard.writeText(
-                    `${process.env.NEXT_PUBLIC_DOMAIN_URL}/v/1`
-                  );
+                  navigator.clipboard
+                    .writeText(`${process.env.NEXT_PUBLIC_DOMAIN_URL}/v/1`)
+                    .then(() => toast("Copied!"));
                   setIsCopied(true);
                 }
               }}
