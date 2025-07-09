@@ -3,6 +3,7 @@ import Description from "../_components/description";
 import UserInformation from "../_components/user-information";
 import VideoActions from "../_components/video-actions";
 import Comments from "../_components/comments";
+import RecommendedVideos from "../_components/recommended-vidoes";
 
 interface VideoPageProps {
   params: Promise<{ videoId: string }>;
@@ -27,7 +28,9 @@ const VideoPage = async ({ params }: VideoPageProps) => {
 
         <Comments />
       </div>
-      <div className="col-span-1"></div>
+      <div className="col-span-1">
+        <RecommendedVideos />
+      </div>
     </div>
   );
 };
