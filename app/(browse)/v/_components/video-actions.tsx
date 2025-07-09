@@ -124,7 +124,7 @@ const VideoActions = ({ reaction }: VideoActionsProps) => {
               {process.env.NEXT_PUBLIC_DOMAIN_URL}/v/1
             </div>
             <Button
-            size={'sm'}
+              size={"sm"}
               variant={isCopied ? "outline" : "default"}
               className="rounded-full font-bold font-space-grotesk"
               onClick={() => {
