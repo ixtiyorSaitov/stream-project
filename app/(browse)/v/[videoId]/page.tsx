@@ -17,7 +17,7 @@ const VideoPage = async ({ params }: VideoPageProps) => {
 
         <div className="flex items-center justify-between mt-3">
           <UserInformation />
-          <VideoActions />
+          <VideoActions reaction={"DISLIKE"} />
         </div>
       </div>
       <div className="col-span-1"></div>

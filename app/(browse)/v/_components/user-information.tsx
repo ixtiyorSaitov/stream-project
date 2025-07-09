@@ -28,7 +28,7 @@ const UserInformation = () => {
         </div>
         <p className="text-sm text-muted-foreground">23 subscribers</p>
       </div>
-      <SubscribeBtn />
+      <SubscribeBtn isFollowing={false} />
     </Link>
   );
 };
