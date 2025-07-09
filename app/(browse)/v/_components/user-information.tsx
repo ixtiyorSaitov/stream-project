@@ -2,6 +2,7 @@ import UserAvatar from "@/components/shared/user-avatar";
 import { Button } from "@/components/ui/button";
 import { BadgeCheck } from "lucide-react";
 import Link from "next/link";
+import SubscribeBtn from "../../_components/subscribe-btn";
 
 const UserInformation = () => {
   return (
@@ -27,6 +28,7 @@ const UserInformation = () => {
         </div>
         <p className="text-sm text-muted-foreground">23 subscribers</p>
       </div>
+      <SubscribeBtn />
     </Link>
   );
 };

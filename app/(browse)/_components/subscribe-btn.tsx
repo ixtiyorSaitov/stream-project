@@ -5,7 +5,11 @@ interface SubscribeBtnProps {
 }
 const SubscribeBtn = ({ isFollowing }: SubscribeBtnProps) => {
   return (
-    <Button variant={isFollowing ? 'secondary': 'default'} size={"lg"} className="rounded-full mt-4">
+    <Button
+      variant={isFollowing ? "secondary" : "default"}
+      size={"lg"}
+      className="rounded-full"
+    >
       {isFollowing ? "Unsubscribe" : "Subscribe"}
     </Button>
   );
