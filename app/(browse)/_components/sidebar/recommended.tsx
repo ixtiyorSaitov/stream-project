@@ -13,7 +13,6 @@ import Link from "next/link";
 
 const Recommended = async () => {
   const data = await getRecommended();
-  console.log(data);
 
   const recommended = data?.data?.recommended || [];
   return (

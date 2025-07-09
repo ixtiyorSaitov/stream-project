@@ -14,7 +14,6 @@ import Link from "next/link";
 
 const Following = async () => {
   const data = await getFollowing();
-  console.log(data);
 
   const following = data?.data?.following || [];
 
